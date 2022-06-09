@@ -18,7 +18,11 @@ public class EsTestController {
     @Autowired
     PersonService personService;
 
-
+    /**
+     * 新增
+     * @param person
+     * @return
+     */
     @PostMapping("/person")
     public String save(@RequestBody Person person) {
         String documentId = personService.createUser(person);
@@ -26,17 +30,29 @@ public class EsTestController {
         return documentId;
     }
 
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
     @GetMapping("/person/{id}")
     public Person findById(@PathVariable("id")  String id) {
         Person person = personService.findPersonById(id);
         return person;
     }
 
+    /**
+     * 删除
+     */
     @DeleteMapping("/delete")
     public void deleteUser(){
         personService.deleteIndex();
     }
 
+    /**
+     * 高亮显示
+     * @param name
+     */
     @GetMapping("/searchHigh/{name}")
     public void searchHigh(@PathVariable("name") String name) {
         List<Person> personList = personService.searchHigh(name);
@@ -44,6 +60,10 @@ public class EsTestController {
     }
 
 
+    /**
+     * 返回分词结果
+     * @param name
+     */
     @GetMapping("/getParticipesResult/{name}")
     public void getParticipesResult(@PathVariable("name") String name) {
         List<String> participesResultList = personService.getParticipesResult(name);
