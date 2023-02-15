@@ -7,7 +7,7 @@
     <modules>
         <module>springboot-elasticsearch</module>
         <module>springboot-jpa</module>
-<!--        <module>springboot-neo4j</module>-->
+        <module>springboot-neo4j</module>
     </modules>
 
     <parent>
