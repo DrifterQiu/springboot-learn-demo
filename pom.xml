@@ -8,6 +8,7 @@
         <module>springboot-elasticsearch</module>
         <module>springboot-jpa</module>
         <module>springboot-neo4j</module>
+        <module>springboot-mybatis</module>
     </modules>
 
     <parent>

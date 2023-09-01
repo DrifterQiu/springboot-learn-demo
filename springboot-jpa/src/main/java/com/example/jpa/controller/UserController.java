@@ -46,7 +46,7 @@ public class UserController {
     }
 
     /**
-     * 新增
+     * 更新
      * @param user
      * @return
      */
