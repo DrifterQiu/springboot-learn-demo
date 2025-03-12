@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface OrderFromRepository extends JpaRepository<OrderFrom,Long>{
+    
 }

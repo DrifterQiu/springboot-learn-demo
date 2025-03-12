@@ -9,6 +9,7 @@
         <module>springboot-jpa</module>
         <module>springboot-neo4j</module>
         <module>springboot-mybatis</module>
+        <module>springboot-security-oauth2</module>
     </modules>
 
     <parent>

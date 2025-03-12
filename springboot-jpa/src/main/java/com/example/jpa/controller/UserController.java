@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -66,7 +67,7 @@ public class UserController {
     @GetMapping("/find")
     public Page<User> getAllUserByPage(){
         //页数从0开始
-        Pageable pageable = PageRequest.of(0,5);
+        Pageable pageable = PageRequest.of(0,5,Sort.by(Sort.DEFAULT_DIRECTION,"id"));
         Specification<User> specification = (Specification<User>) (root,query,criteriaBuilder)->{
             Path password = root.get("password");
             Predicate p = criteriaBuilder.equal(password.as(String.class),"1234567");
@@ -77,4 +78,7 @@ public class UserController {
         log.info(userPage.getContent().toString());
         return userPage;
     }
+
+
+
 }
